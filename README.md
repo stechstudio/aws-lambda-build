@@ -20,6 +20,7 @@ The following libraries are available in the AWS Lambda execution environment, r
  - Amazon Linux build of java-1.8.0-openjdk for Java.
 
  ### Development Tools
+ - advdef
  - autoconf
  - automake
  - binutils
