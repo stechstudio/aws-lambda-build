@@ -6,7 +6,7 @@ LABEL authors="Bubba Hines <bubba@stechstudio.com>"
 # Build dependencies
 RUN rpm --rebuilddb && yum groupinstall -y "Development Tools"  --setopt=group_package_types=mandatory,default
 RUN rpm --rebuilddb && yum install -y zlib-devel libxml2-devel libssh2-devel libpng-devel gmp-devel ghostscript-devel \
-    imageMagick-devel
+    ImageMagick-devel
 RUN mkdir -p /deps/advc
 RUN \
   curl -Ls https://github.com/amadvance/advancecomp/releases/download/v2.0/advancecomp-2.0.tar.gz | tar xzC /deps/advc --strip-components=1 \
