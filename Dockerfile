@@ -1,7 +1,9 @@
+# Create amzn-ami-hvm-2016.03.3.x86_64-gp2 container suitable for building Lambda binaries
 FROM awswift/amazonlinux:0.1
 LABEL authors="Bubba Hines <bubba@stechstudio.com>"
 
-# Create amzn-ami-hvm-2016.03.3.x86_64-gp2 container suitable for building Lambda binaries
+COPY bash/.bashrc /root/.bashrc
+COPY bash/.bashrc_help /root/.bashrc_help
 
 # Build dependencies
 RUN yum makecache fast
