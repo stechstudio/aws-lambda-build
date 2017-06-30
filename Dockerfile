@@ -8,10 +8,10 @@ COPY bash/.bashrc_help /root/.bashrc_help
 # Build dependencies
 RUN yum makecache fast
 RUN rpm --rebuilddb && yum groupinstall -y "Development Tools"  --setopt=group_package_types=mandatory,default
-RUN rpm --rebuilddb && yum install -y zlib-devel libxml2-devel libssh2-devel libpng-devel
-RUN rpm --rebuilddb && yum install -y gmp-devel ghostscript-devel ImageMagick-devel
-RUN rpm --rebuilddb && yum install -y jq nasm cmake
+RUN rpm --rebuilddb && yum install -y libmount-devel
+RUN rpm --rebuilddb && yum install -y jq cmake
 RUN rpm --rebuilddb && yum install -y texlive gtk-doc docbook-utils-pdf
+RUN rpm --rebuilddb && yum install -y gmp-devel libssh2-devel
 
 RUN mkdir -p /deps/advc
 RUN \
