@@ -9,24 +9,18 @@ WORKDIR /root
 RUN sed -i 's/releasever=latest/releaserver=2017.03/' /etc/yum.conf
 RUN yum makecache
 
-
-# Install some core packages for building software
-RUN yum update -y \
-    && yum makecache fast \
-    && yum install -y \
-        jq \
-        zsh \
-        wget \
-        fuse \
-        cmake \
-        gtk-doc \
-        texlive \
-        gmp-devel \
-        libssh2-devel \
-        libmount-devel \
-        dockbook-utils-pdf \
-    && yum groupinstall -y "Development Tools"  --setopt=group_package_types=mandatory,default \
-    && yum clean all
+# Tools we need
+RUN yum groupinstall -y "Development Tools"  --setopt=group_package_types=mandatory,default
+RUN yum install -y  jq \
+                    gperf \
+                    expect \
+                    gtk-doc \
+                    texlive \
+                    python35 \
+                    docbook2X \
+                    findutils \
+                    python35-pip
+RUN yum clean all
 
 # Setup my dotfiles.
 RUN /usr/bin/git clone --bare --recurse-submodules -j8 https://github.com/bubba-h57/dotfiles.git /root/.dotfiles \
