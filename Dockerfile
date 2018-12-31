@@ -1,7 +1,12 @@
-FROM lambci/lambda:build-python3.6
+FROM amazonlinux:2017.03 
 LABEL authors="Bubba Hines <bubba@stechstudio.com>"
+LABEL vendor="Signature Tech Studio, Inc."
+LABEL home="https://github.com/stechstudio/aws-lambda-build"
 
 WORKDIR /root
+
+
+
 
 # Install some core packages for building software
 RUN yum update -y \
