@@ -38,4 +38,12 @@ RUN /var/lang/bin/virtualenv --python /usr/bin/python2.7 --prompt=py2Bubba /root
 ADD https://github.com/neovim/neovim/releases/download/v0.3.1/nvim.appimage /root
 RUN chmod 755 /root/nvim.appimage && /root/nvim.appimage --appimage-extract && ln -s /root/squashfs-root/usr/bin/nvim /usr/local/bin/nvim && /usr/local/bin/nvim +'PlugInstall --sync' +qall &> /dev/null
 
+# Install Ninja and Meson
+RUN curl -Ls https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-linux.zip >> /tmp/ninja.zip && \
+    cd /tmp && unzip /tmp/ninja.zip && \
+    cp /tmp/ninja /usr/local/bin && \
+    /usr/bin/pip-3.5 install meson
+
+
+
 ENTRYPOINT ["/bin/zsh"]
