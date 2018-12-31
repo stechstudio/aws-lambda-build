@@ -5,7 +5,9 @@ LABEL home="https://github.com/stechstudio/aws-lambda-build"
 
 WORKDIR /root
 
-
+# Lambda is based on 2017.03. Lock YUM to that release version.
+RUN sed -i 's/releasever=latest/releaserver=2017.03/' /etc/yum.conf
+RUN yum makecache
 
 
 # Install some core packages for building software
