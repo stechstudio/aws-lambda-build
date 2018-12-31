@@ -54,5 +54,15 @@ RUN mkdir -p /tmp/cmake && \
     ./bootstrap --prefix=/usr/local && \
     make && \
     make install
-    
+
+# Set some sane environment variables for ourselves
+ENV \
+    PKG_CONFIG="/usr/bin/pkg-config" \
+    SOURCEFORGE_MIRROR="netix" \
+    PATH="/root/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" \
+    JQ="/usr/bin/jq" \
+    CMAKE='/usr/local/bin/cmake' \
+    MESON='/usr/local/bin/meson' \
+    NINJA='/usr/local/bin/ninja'
+
 ENTRYPOINT ["/bin/zsh"]
