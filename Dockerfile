@@ -44,6 +44,7 @@ RUN curl -Ls https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja
     cp /tmp/ninja /usr/local/bin && \
     /usr/bin/pip-3.5 install meson
 
-
+# Install the rust toolchain
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 
 ENTRYPOINT ["/bin/zsh"]
