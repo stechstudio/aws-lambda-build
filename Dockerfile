@@ -1,4 +1,4 @@
-FROM amazonlinux:2017.03 
+FROM amazonlinux:2017.03
 LABEL authors="Bubba Hines <bubba@stechstudio.com>"
 LABEL vendor="Signature Tech Studio, Inc."
 LABEL home="https://github.com/stechstudio/aws-lambda-build"
@@ -24,6 +24,9 @@ RUN yum makecache \
                     findutils \
                     python35-pip \
                     dockbook-utils-pdf \
+                    readline-devel \
+                    gettext-devel \
+                    libicu-devel
  && yum clean all
 
 # Install Ninja and Meson
